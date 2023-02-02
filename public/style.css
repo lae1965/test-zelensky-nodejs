@@ -1,0 +1,55 @@
+p {
+  margin: 0;
+}
+
+.screen {
+  margin: 0;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  width: fit-content;
+}
+
+.header {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+#filter {
+  display: flex;
+  gap: 20px;
+}
+
+.offer {
+  margin-bottom: 10px;
+  border-bottom: 7px solid;
+  padding-bottom: 10px;
+}
+
+.main-properties {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.flights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.item {
+  border: 1px solid #000000;
+  padding: 5px;
+}
+
+.string {
+  display: flex;
+  gap: 10px;
+}
+
+.title {
+  font-weight: bold;
+}

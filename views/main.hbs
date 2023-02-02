@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <title>Offers</title>
+</head>
+
+<body>
+  <section class="screen">
+  <div class="header">
+    <form id="filter" action="http://localhost:3333" method="get">
+      <p>Аэропорт:</p>
+      <select name="airports" id="airports">
+        <option value="0">Любой</option>
+        {{#each airports}}
+        <option value={{this.Code}}>{{this.Name}}</option>
+        {{/each}}
+      </select>
+      <p>Авиакомпания:</p>
+      <select name="airlines" id="airlines">
+        <option value="0">Любая</option>
+        {{#each airlines}}
+        <option value={{this.Code}}>{{this.Name}}</option>
+        {{/each}}
+      </select>
+      <button type="submit">Поиск</button>
+    </form>
+    <div class="string">
+      <p class="title">Время обработки xml файла:</p>
+      <p class="value">{{parseTime}} мс.</p>
+    </div>
+    <div class="string">
+      <p class="title">Время обработки данных для рендора:</p>
+      <p class="value">{{filterTime}} мс.</p>
+    </div>
+  </div>
+    {{#each offersData}}
+    <div class="offer">
+      <div class="main-properties">
+        <div class="string">
+          <p class="title">Цена:</p>
+          <p class="value">{{this.Price}} руб.</p>
+        </div>
+        <div class="string">
+          <p class="title">Комбинированный рейс:</p>
+          <p class="value">{{this.IsCombined}}</p>
+        </div>
+        <div class="string">
+          <p class="title">Чартерный рейс:</p>
+          <p class="value">{{this.charter}}</p>
+        </div>
+      </div>
+      <div class="flights">
+        {{#each this.Flights.Item}}
+        <div class="item">
+          <div class="string">
+            <p class="title">Номер рейса:</p>
+            <p class="value">{{this.Code}}-{{this.Num}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Аэропорт вылета:</p>
+            <p class="value">{{this.Origin}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Аэропорт прилета:</p>
+            <p class="value">{{this.Destination}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Время вылета:</p>
+            <p class="value">{{this.Depart}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Время прилета:</p>
+            <p class="value">{{this.Arrive}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Время в пути:</p>
+            <p class="value">{{this.Duration}}</p>
+          </div>
+          <div class="string">
+            <p class="title">Направление:</p>
+            <p class="value">{{this.SegmentId}}</p>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/each}}
+  </section>
+</body>
+
+</html>
